@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Movie Watchlist Manager</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header>
+  <img src="https://via.placeholder.com/50" alt="Logo" />
+  <h1>Movie Watchlist Manager</h1>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="#login" onclick="showPage('loginPage')">Sign In</a></li>
+    <li><a href="#signup" onclick="showPage('signupPage')">Sign Up</a></li>
+    <li><a href="#home" onclick="showPage('homePage')">Home</a></li>
+    <li><a href="#profile" onclick="showPage('profilePage')">Profile</a></li>
+    <li><a href="#about" onclick="showPage('aboutPage')">About</a></li>
+  </ul>
+</nav>
+
+<main>
+  <!-- Login Page -->
+  <div id="loginPage">
+    <h2>Sign In</h2>
+    <form id="loginForm">
+      <input type="text" id="loginUsername" placeholder="Username" required />
+      <input type="password" id="loginPassword" placeholder="Password" required />
+      <button type="submit">Sign In</button>
+    </form>
+  </div>
+
+  <!-- Sign Up Page -->
+  <div id="signupPage">
+    <h2>Sign Up</h2>
+    <form id="signupForm">
+      <input type="text" id="signupUsername" placeholder="Username" required />
+      <input type="password" id="signupPassword" placeholder="Password" required />
+      <input type="password" id="signupConfirmPassword" placeholder="Confirm Password" required />
+      <div id="passwordStrength"></div>
+      <button type="submit">Sign Up</button>
+    </form>
+  </div>
+
+  <!-- Home Page -->
+  <div id="homePage">
+    <h2>Currently Watching</h2>
+    <form id="addWatchingForm">
+      <input type="text" placeholder="Movie Title" id="movieTitle" required />
+      <input type="text" placeholder="Genre (Optional)" id="movieGenre" />
+      <input type="date" id="movieDate" required />
+      <button type="submit">Add Movie</button>
+    </form>
+    <ul id="watchingList"></ul>
+
+    <h2>Watched</h2>
+    <ul id="watchedList"></ul>
+  </div>
+
+  <!-- Profile Page -->
+  <div id="profilePage">
+    <h2>User Profile</h2>
+    <p>Username: <span id="profileUsername"></span></p>
+    <button onclick="logout()">Logout</button>
+  </div>
+
+  <!-- About Page -->
+  <div id="aboutPage">
+    <h2>About Movie Watchlist Manager</h2>
+    <p>This system helps users manage their movies to watch and already watched movies.</p>
+  </div>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
