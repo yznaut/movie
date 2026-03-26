@@ -1,6 +1,6 @@
 // Function to show only the selected page
 function showPage(pageId) {
-  document.querySelectorAll('main > div').forEach(div => div.classList.remove('active'));
+  document.querySelectorAll('.page').forEach(div => div.classList.remove('active'));
   document.getElementById(pageId).classList.add('active');
 }
 
@@ -112,7 +112,7 @@ document.getElementById('addWatchingForm').onsubmit = (e) => {
   document.getElementById('addWatchingForm').reset();
 };
 
-// Finish movie
+// Finish movie - prompt for rating and comment
 function finishMovie(index) {
   const username = localStorage.getItem('currentUser');
   const watching = JSON.parse(localStorage.getItem('watching_' + username)) || [];
@@ -120,10 +120,18 @@ function finishMovie(index) {
 
   const movie = watching.splice(index,1)[0];
   movie.dateFinished = new Date().toISOString().slice(0,10);
-  // Initialize rating and comment
-  movie.rating = 0;
-  movie.comment = '';
 
+  // Prompt for rating (1-5)
+  let rating = prompt("Rate the movie (1-5 stars):", "3");
+  rating = parseInt(rating);
+  if (isNaN(rating) || rating < 1 || rating > 5) rating = 3; // default
+  movie.rating = rating;
+
+  // Prompt for comment
+  const comment = prompt("Add a comment about the movie:", "");
+  movie.comment = comment || '';
+
+  // Save to watched list
   localStorage.setItem('watching_' + username, JSON.stringify(watching));
   watched.push(movie);
   localStorage.setItem('watched_' + username, JSON.stringify(watched));
