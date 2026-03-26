@@ -9,6 +9,9 @@ header {
 header img {
   width: 50px; height: 50px; margin-right: 10px;
 }
+h1 {
+  margin: 0;
+}
 nav {
   background: #444; padding: 10px;
 }
@@ -18,20 +21,21 @@ nav ul {
 nav a {
   color: #fff; text-decoration: none; font-weight: bold;
 }
-main > div {
-  display: none; padding: 20px;
+.page {
+  display: none;
+  padding: 20px;
 }
-.active {
+.page.active {
   display: block;
 }
 form {
   margin-bottom: 20px;
 }
-input, select, button {
-  margin: 5px 0; padding: 8px; width: 100%;
+input[type="text"], input[type="password"], input[type="date"] {
+  padding: 8px; margin: 5px 0; width: 100%; box-sizing: border-box;
 }
 button {
-  cursor: pointer;
+  padding: 8px 12px; margin-top: 10px; cursor: pointer;
 }
 ul {
   list-style: none; padding: 0;
@@ -39,6 +43,9 @@ ul {
 li {
   background: #fff; margin: 5px 0; padding: 10px; border-radius: 4px;
 }
-.stars {
-  cursor: pointer; color: gold;
+button {
+  margin-left: 10px;
+}
+#passwordStrength {
+  font-weight: bold; margin-top: 5px;
 }
